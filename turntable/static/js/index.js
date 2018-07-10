@@ -1,7 +1,7 @@
 // import $ from 'jquery/jquery-vendor.js'
-import $ from 'jquery'
-import 'jqueryplugin/awardRotate.js'
-// import 'jqueryplugin/jquery.datetimepicker.full.js'
+require('jqueryplugin/awardRotate.js');
+// import 'jqueryplugin/awardRotate.js'
+// import 'jqueryplugin/jquery.datetimepicker.full.js';
 
 $(function() {
     var rotateTimeOut = function() {
@@ -60,7 +60,7 @@ $(function() {
         console.log(item);
     });
 
-    //
+    // 日期
     $.datetimepicker.setLocale('zh');
     $('#startDate').datetimepicker({        
         timepicker:false,

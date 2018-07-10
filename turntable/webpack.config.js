@@ -1,5 +1,5 @@
 const path = require('path');
-// const date = require('./static/js/plugin/jquery/jquery.datetimepicker.full.js')
+
 console.log('wangmaomao');
 console.log('This is test !!!!!!!!!!!!');
 console.log('__dirname = ' ,__dirname);
@@ -13,15 +13,16 @@ const config = {
     },
     resolve:{
         alias:{
-            jquery: path.resolve(__dirname,"./src/components/jquery-vendor.js"),
+            // jquery: path.resolve(__dirname,"./src/components/jquery-vendor.js"),
             jqueryplugin:path.resolve(__dirname,"./static/js/plugin/jquery/"),
             // 'jquery-mousewheel':path.resolve(__dirname,"./static/js/plugin/jquery/jquery-mousewheel.js"),
-            vue:path.resolve(__dirname,"./static/js/plugin/vue/vue.js")
+            // vue:path.resolve(__dirname,"./static/js/plugin/vue/vue.js")
         }
     },
-    // plugins:[
-    //     new date(),
-    // ]
+    externals:{
+        jquery:"jQuery",
+        vue:"Vue"
+    }
 };
 
 module.exports  = config;
