@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>index2</title>
+	<link rel="stylesheet" type="text/css" href="../static/js/plugin/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/demo.css">
+	<link rel="stylesheet" type="text/css" href="../static/js/plugin/jquery/jquery.datetimepicker.min.css">
+</head>
+<body>
+	<!-- vue -->
+	<div id="app">
+		<h1>{{text}}</h1>
+		<button type="button" @click=alertFn>index2.js</button>	
+
+	</div>
+	<button type="button" class="jquery_btn">$ btn index2.js</button>	
+	<!-- jquery.plugin date -->
+	<form class="form-inline">
+		<div class="form-group">
+	        <label>就餐时间：</label>
+	        <div class="form-date">
+	            <input id="startDate" class="form-control" type="text" placeholder="选择时间">
+	        </div>
+	        <em> — </em>
+	        <div class="form-date">
+	            <input id="endDate" class="form-control" type="text" placeholder="选择时间">
+	        </div>
+	    </div>
+	</form>
+</body>
+<script type="text/javascript" src="../static/js/plugin/jquery/jquery.min.js"></script>
+<!-- <script type="text/javascript" src="../static/js/plugin/jquery/jquery.datetimepicker.full.min.js"></script> -->
+<script type="text/javascript" src="../static/js/plugin/vue/vue.js"></script>
+<script type="text/javascript" src="../build/app2.js"></script>
+</html>

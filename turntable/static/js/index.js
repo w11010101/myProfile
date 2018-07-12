@@ -1,8 +1,18 @@
+// var jquery = require("jquery");
+// import 'turntable.css'
+// import Styles from 'css-loader!../css/turntable.css';
 // import $ from 'jquery/jquery-vendor.js'
+// require("../css/turntable.css")
+// import turntable from '../css/turntable.css';
+import '../css/turntable.css';
 require('jqueryplugin/awardRotate.js');
+// require('jqueryplugin/jquery-mousewheel.js');d
 // import 'jqueryplugin/awardRotate.js'
-// import 'jqueryplugin/jquery.datetimepicker.full.js';
+// import 'jqueryplugin/jquery-mousewheel.js';
 
+// import icon from '../../src/assets/turntable-bg.jpg';
+
+// $("img").attr("src",icon)
 $(function() {
     var rotateTimeOut = function() {
         $('.rotate').rotate({
@@ -59,32 +69,6 @@ $(function() {
         }
         console.log(item);
     });
-
-    // 日期
-    $.datetimepicker.setLocale('zh');
-    $('#startDate').datetimepicker({        
-        timepicker:false,
-        format:'Y.m.d',
-        parentID:"html",
-        onShow:function( ct ){
-            console.log(123)
-            this.setOptions({
-                maxDate:$('#endDate').val()?$('#endDate').val():false
-            })
-        },
-    });
-
-    $('#endDate').datetimepicker({
-        timepicker:false,
-        format:'Y.m.d',
-        parentID:"html",
-        onShow:function( ct ){
-            this.setOptions({
-                minDate:$('#startDate').val()?$('#startDate').val():false
-            })
-        },
-    });
-
 });
 function rnd(n, m) {
     return Math.floor(Math.random() * (m - n + 1) + n)
