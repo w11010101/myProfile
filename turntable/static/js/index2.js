@@ -1,6 +1,8 @@
 import Vue from 'vue'
 // import $ from "jquery"
 import 'jqueryplugin/jquery.datetimepicker.full.js';
+
+
 var app = new Vue({
     el:"#app",
     data:{
@@ -8,7 +10,7 @@ var app = new Vue({
     },
     methods:{
         alertFn:function(){
-            alert(this.text + "__wangmaomao")
+            alert(this.text + "__wangmaomao");
         }
     }
 });

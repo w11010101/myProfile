@@ -6,6 +6,8 @@ console.log('__dirname = ' ,__dirname);
 console.log(':__dirname+"./static/js/plugin/vue/" = ' ,__dirname+"./static/js/plugin/vue/");
 console.log('path.resolve(__dirname,"./build/") = ' ,path.resolve(__dirname,"./build/"));
 
+// const firstPlugin = require('./static/js/myPlugin/first-plugin');
+
 const config = {
     // entry:['./static/js/index.js','./static/js/index2.js'],
     entry:{
@@ -32,38 +34,13 @@ const config = {
     },
     module:{
         rules:[
-
             { test: /\.css$/, use:['style-loader','css-loader'] },
             { test: /\.(png|svg|jpg|gif)$/, use:['file-loader'] },
         ]
-
-        // ru:[
-        //     { test: /\.css$/, loader: 'style-loader!css-loader' },
-        // ]les
-
-
-
-        // rules:[
-        //     {
-        //         test:/\.css$/,
-        //         use:[
-        //             {loader:'style-loader'},
-        //             {
-        //                 loader:'css-loader',
-        //                 // options:{
-        //                 //     modules:true
-        //                 // }
-        //             },
-        //             {
-        //                 loader:'./static/css/turntable',
-        //                 // options:{
-        //                 //     modules:true
-        //                 // }
-        //             }
-        //         ]
-        //     }
-        // ]
-    }
+    },
+    plugins:[
+        // new firstPlugin({option:true,name:'wangmaomao'})
+    ]
 };
 
 module.exports  = config;

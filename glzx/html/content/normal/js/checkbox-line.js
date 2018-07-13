@@ -1,5 +1,5 @@
-define(["jquery.datetimepicker",'vue','jquery.bootstrap-duallistbox','domready'],
-    function(_date,Vue,duallistbox,domready){
+define(["jquery.datetimepicker",'vue','jquery.bootstrap-duallistbox','domready','bootstrap-file'],
+    function(_date,Vue,duallistbox,domready,filestyle){
     return function (){
         window.app = new Vue({
             el:'#app',

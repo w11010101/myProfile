@@ -6,7 +6,7 @@
 // import turntable from '../css/turntable.css';
 import '../css/turntable.css';
 require('jqueryplugin/awardRotate.js');
-// require('jqueryplugin/jquery-mousewheel.js');d
+// require('jqueryplugin/jquery-mousewheel.js');
 // import 'jqueryplugin/awardRotate.js'
 // import 'jqueryplugin/jquery-mousewheel.js';
 

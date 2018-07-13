@@ -12,6 +12,7 @@ require.config({
         'echarts':'./echarts/echarts.min',
         'domready':'./domready/domReady',
         'jquery.bootstrap-duallistbox':'./bootstrap-duallistbox/jquery.bootstrap-duallistbox',
+        'bootstrap-file':'./bootstrap/js/bootstrap-filestyle',
         // 'domready':'https://cdn.bootcss.com/require-domReady/2.0.1/domReady'
         // my js
         'breadcrumb':'../normal/js/getBreadcrumb.min',
