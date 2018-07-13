@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../content/frame/animate/animate.min.css" >
     <link rel="stylesheet" href="../content/normal/css/theme.css" >
     <!-- my style start -->
-    <link rel="stylesheet" href="../content/normal/css/my-theme.css" >
+    <!-- <link rel="stylesheet" href="../content/normal/css/my-theme.css" > -->
     <link rel="stylesheet" href="../content/normal/css/nav-style.css" >
     <link rel="stylesheet" href="../content/normal/css/demo.css">
     <!-- my style end -->
@@ -243,45 +243,23 @@
                 </div>
                 <!--/.nav-collapse -->
                 <!-- Sidebar -->
-                <div id="vm-nav" >
-                    <ul class="nav navbar-nav side-nav" id="sidebar">
-                        <li>
-                            <div class="sidebar-collapse">
-                                <a href="#">
-                                    <i class="ico-bars"></i>
-                                </a>
-                            </div>
-                        </li>
-                        <li v-bind:class="'navigation ' + (e.active?'active':'')" v-for="(e,i) in navData">
-                            <dropdown-menu v-bind:todo ='e' v-bind:index="i"></dropdown-menu>
-                            <ul class="dropdown-menu">
-                                <dropdown-sub-list class="dropdown" v-if="e.nodes" v-for="sub in e.nodes" v-bind:subtodo ='sub' v-bind:index ='i' v-bind:isNodes="e.nodes?true:false"></dropdown-sub-list>
-                            </ul>
-                        </li>
-                    </ul>
-                    <div class="product-nav">
-                        <div class="sec-sidebar" id="sec-sidebar">
-                            <h1 class="h1">{{activeNav.text}}</h1>
-                            <ul class="nav navbar-nav sec-side-nav">
-                                <li v-for="(event,index) in activeNav.nodes" class="navigation menu-hide">
-                                    <dropdown-product-a v-bind:todo ='event' v-bind:index="index" v-bind:level=1></dropdown-product-a>
-                                    <dropdown-product-menu v-bind:todo ='event' v-bind:index="index"  v-if="event.nodes"></dropdown-product-menu>
-                                    <dropdown-product-a v-bind:todo ='event' v-bind:index="index"  v-else></dropdown-product-a>
-                                    <ul class="menu">
-                                        <li v-for="(item,index) in event.nodes"  v-bind:class="{'dropdown':true,active:item.active}">
-                                            <dropdown-product-a v-bind:todo ='item' v-bind:setid="item.id" v-bind:level=2></dropdown-product-a>
-                                            <ul class="dropdown-menu">
-                                                <dropdown-product-sub-list v-if="item.nodes" v-for="sub in item.nodes" v-bind:subtodo ='sub' v-bind:index ='index'></dropdown-product-sub-list>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="sidebar-collapse sec-sidebar-collapse">
-                            <a href="#"><i class="ico-arr-collapse"></i></a>
-                        </div>
-                    </div>
+                <div id="navapp">
+                    <sider hide-trigger collapsible :collapsed-width="60" v-model="isCollapsed" width="230px" class="navMenu" :style="{position: 'fixed', height: '100vh',top: '50px', left: 0, overflow: 'auto'}" >
+                        <icon @click.native="collapsedSider" :class="rotateIcon" :style="{margin: '20px 20px 0'}" type="navicon-round" size="24"></icon>
+                        <i-menu ref="side1" :open-names="open" :active-name="active" width="auto" :class="menuitemClasses" accordion @on-select="jumpPage" @on-open-change="collapsedMenuShow">
+                            <menu-parts v-for="data in navData" :data='data' :key="data.id" ></menu-parts>
+                        </i-menu>
+                    </sider>
+                    <!--  -->
+                    <i-menu ref="side2" width="170px" class="collapsedMenu" accordion @on-select="jumpPage">
+                        <menu-item name="2" class="collapsedMenu-title" >
+                            {{collapsedMenuTitle}}
+                        </menu-item>                    
+                        <menu-parts v-for="data in activeNav" :key="data.id" :data='data' v-if="data.nodes && data.nodes.length"></menu-parts>
+                        <menu-item v-for="data in activeNav" :key="data.href || data.id" :name="data['href']?data.href+'|'+data.nid:data.text+'|'+data.id" v-if="!data.nodes">
+                            <span>{{data.text}}</span>
+                        </menu-item>
+                    </i-menu>
                 </div>
             </div>
             <!-- Fixed navbar end -->
@@ -322,13 +300,13 @@
     <!-- Make page fluid-->
     <!-- Wrap all page content end -->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script type="text/javascript" src="../content/frame/jquery/jquery.min.js"></script>
+    <!-- <script type="text/javascript" src="../content/frame/jquery/jquery.min.js"></script> -->
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script type="text/javascript" src="../content/frame/bootstrap/js/bootstrap.js"></script>
+  <!--   <script type="text/javascript" src="../content/frame/bootstrap/js/bootstrap.js"></script>
 
-    <script type="text/javascript" src="../content/frame/echarts/echarts.min.js"></script>
+    <script type="text/javascript" src="../content/frame/echarts/echarts.min.js"></script> -->
     <!-- my js start -->
-    <script type="text/javascript" src="../content/frame/vuejs/vue.js"></script>
+<!--     <script type="text/javascript" src="../content/frame/vuejs/vue.js"></script>
     <script type="text/javascript" src="../content/normal/js/data.js"></script>
 
     <script type="text/javascript" src="../content/frame/nicescroll/jquery.nicescroll.min.js"></script>
@@ -336,9 +314,7 @@
     <script type="text/javascript" src="../content/frame/clipboard/clipboard.min.js"></script>
     <script type="text/javascript" src="../content/frame/jquery.date/jquery.datetimepicker.full.min.js"></script>
     <script type="text/javascript" src="../content/normal/js/frame.js"></script>
-    <script type="text/javascript" src="../content/normal/js/v-demo.js"></script>
+    <script type="text/javascript" src="../content/normal/js/v-demo.js"></script> -->
+    <script type="text/javascript" data-main="../content/normal/js/local-index-main.js" src="../content/frame/requireJs/require.min.js"></script>
 </body>
-<script type="text/javascript">
-    // let {init} = require('./../content/normal/js/getBreadcrumb');
-</script>
 </html>

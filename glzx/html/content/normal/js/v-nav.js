@@ -1,10 +1,11 @@
 
-define(['domready','jquery','vue','breadcrumb'],function(domReady,$,Vue,breadcrumb){
+define(['domready','jquery','vue','breadcrumb','iview'],function(domReady,$,Vue,breadcrumb,iview){
     // 封装之前写好的的iview的nav导航
     function runNavVm(callback){
         var b = new breadcrumb({
             paramName:"href"
         });
+        Vue.use(iview);
         breadcrumb = b;
         //This function is called once the DOM is ready,
         //notice the value for 'domReady!' is the current
@@ -57,14 +58,16 @@ define(['domready','jquery','vue','breadcrumb'],function(domReady,$,Vue,breadcru
             },
             methods: {
                 collapsedSider: function() {
-                    this.$refs.side1.toggleCollapse();
-                    console.log(this.$refs.side1)
+                    console.log(this.$refs.side1);
+                    console.log(this.isCollapsed);
+                    // this.$refs.side1.toggleCollapse();
                     if(this.isCollapsed){
                         console.log(1)
                         this.$refs.side1.$el.style.width = "60px";
 
                     }else{
                         console.log(2)
+                        this.$refs.side1.toggleCollapse();
                         this.$refs.side1.$el.style.width = "230px";
                     }
 

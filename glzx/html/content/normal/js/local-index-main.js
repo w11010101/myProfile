@@ -1,7 +1,6 @@
 require.config({
-    baseUrl:'../content/frame',
+    baseUrl:"../content/frame",
     paths:{
-        // 依赖
         'require':'./requireJs/require',
         'jquery':'./jq/jquery.min',
         'bootstrap':'./bootstrap/js/bootstrap',
@@ -40,44 +39,4 @@ require.config({
             deps:['jquery','css!./bootstrap-duallistbox/bootstrap-duallistbox']
         }
     }
-});
-require(['jquery','vue','bootstrap','v-nav'],
-    function($,Vue,bootstrap,nav){
-   
-    // 实例 获取面包屑组件 breadcrumb
-    // 可以通过option进行面包屑配置；支持2个参数，
-    var option = {
-        // nodesName:"nodes",   // 默认子节点的集合为nodes
-        paramName:'href'   // 默认根据id属性来查找
-    }
-
-    $("#navApp").load('./views/nav/nav.html',function(){
-        // 调用 v-nav.js 中的方法, 并传入Vue实例 和 breadcrumb实例
-        var newNav = nav(function(event){
-            console.log(event);
-        });
-        console.log(newNav);
-    });
-    // 图表 ---------------------------------------
-    $("#chartBox").load('./views/container/echarts-line.html',function(){
-        $(this).addClass('show').attr('action','./views/container/echarts-line.html');
-    });
-
-    // 
-    var openList = document.querySelector('.openList');
-    var activeItem = document.querySelector('.activeItem');
-    var activeItem = document.querySelector('.activeItem');
-
-    //  展开菜单
-    openList.addEventListener("click",function(){
-        navVm.open = [1,11];
-    });
-    // 选中摸个页面
-    // activeItem.addEventListener("click",function(){
-    //     // console.log(targetNode)
-    //     // console.log('views/container/container-1.html')
-    //     navVm.active = 'views/container/container-1.html';
-    // });    
-});
-
-
+})

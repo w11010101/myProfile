@@ -2,7 +2,6 @@ import Vue from 'vue'
 // import $ from "jquery"
 import 'jqueryplugin/jquery.datetimepicker.full.js';
 
-
 var app = new Vue({
     el:"#app",
     data:{

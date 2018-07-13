@@ -10,9 +10,8 @@ require('jqueryplugin/awardRotate.js');
 // import 'jqueryplugin/awardRotate.js'
 // import 'jqueryplugin/jquery-mousewheel.js';
 
-// import icon from '../../src/assets/turntable-bg.jpg';
+;
 
-// $("img").attr("src",icon)
 $(function() {
     var rotateTimeOut = function() {
         $('.rotate').rotate({

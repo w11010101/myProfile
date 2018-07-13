@@ -1,9 +1,11 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+
 
 console.log('wangmaomao');
-console.log('This is test !!!!!!!!!!!!');
+console.log('This is webpack.config.js !!!!!!!!!!!!');
 console.log('__dirname = ' ,__dirname);
-console.log(':__dirname+"./static/js/plugin/vue/" = ' ,__dirname+"./static/js/plugin/vue/");
 console.log('path.resolve(__dirname,"./build/") = ' ,path.resolve(__dirname,"./build/"));
 
 // const firstPlugin = require('./static/js/myPlugin/first-plugin');
@@ -17,8 +19,10 @@ const config = {
     output:{
         // filename:'bundle.js', 
         filename:'[name].js',        
-
+        // publicPath:path.resolve(__dirname,"./src/assets/"),
         path:path.resolve(__dirname,"./build/"),
+        publicPath: '../build/',
+        
     },
     resolve:{
         alias:{
@@ -35,10 +39,16 @@ const config = {
     module:{
         rules:[
             { test: /\.css$/, use:['style-loader','css-loader'] },
-            { test: /\.(png|svg|jpg|gif)$/, use:['file-loader'] },
+            { test: /\.(png|svg|jpg|gif)$/, use:['file-loader?limit=8124&[hash]'] },
         ]
     },
     plugins:[
+        new CleanWebpackPlugin(['build']),
+        new HtmlWebpackPlugin({
+            title:"HtmlWebpackPlugin",
+            // filename:"HtmlWebpackPlugin.html",
+            // template:'src/index.html'
+        })
         // new firstPlugin({option:true,name:'wangmaomao'})
     ]
 };
