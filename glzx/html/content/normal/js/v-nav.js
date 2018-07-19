@@ -1,9 +1,12 @@
 
-define(['domready','jquery','vue','breadcrumb','iview'],function(domReady,$,Vue,breadcrumb,iview){
+define(['jquery','vue','breadcrumb','iview'],function($,Vue,breadcrumb,iview){
     // 封装之前写好的的iview的nav导航
     function runNavVm(callback){
         var b = new breadcrumb({
             paramName:"href"
+        });
+        var menuBreadcrumb = new breadcrumb({
+            paramName:"id"
         });
         Vue.use(iview);
         breadcrumb = b;
@@ -58,18 +61,13 @@ define(['domready','jquery','vue','breadcrumb','iview'],function(domReady,$,Vue,
             },
             methods: {
                 collapsedSider: function() {
-                    console.log(this.$refs.side1);
-                    console.log(this.isCollapsed);
-                    // this.$refs.side1.toggleCollapse();
-                    if(this.isCollapsed){
-                        console.log(1)
-                        this.$refs.side1.$el.style.width = "60px";
-
-                    }else{
-                        console.log(2)
-                        this.$refs.side1.toggleCollapse();
-                        this.$refs.side1.$el.style.width = "230px";
-                    }
+                    this.$refs.side.toggleCollapse();
+                    $("#navApp").toggleClass('collapse-in');
+                    // if(this.isCollapsed){
+                    //     this.$refs.side1.$el.style.width = "60px";
+                    // }else{
+                    //     this.$refs.side1.$el.style.width = "230px";
+                    // }
 
                 }
             }
@@ -136,17 +134,22 @@ define(['domready','jquery','vue','breadcrumb','iview'],function(domReady,$,Vue,
                 },
                 // 
                 collapsedMenuShow:function(name){
-                    var this_breadcrumb = breadcrumb.init(this.navData,name[0]);
+                    
+                    console.log(menuBreadcrumb)
+                    console.log(name)
+                    console.log(this.navData)
+                    var this_breadcrumb = menuBreadcrumb.init(this.navData,name[0]);
                     var childNodes = this_breadcrumb.currentNodesChilds;
                     this.activeNav = [];
                     this.$nextTick(function(){
                         var openNode = $("#navApp").find(".ivu-menu-opened");
                         var arr = [];
-                        var this_idsArr = breadcrumb.init(this.navData,name[name.length-1]).idsArr;
+                        var this_idsArr = menuBreadcrumb.init(this.navData,name[name.length-1]).idsArr;
                         for(var i = 0;i<this_idsArr.length;i++){
                             arr.push(this_idsArr[i]);
                         }
                         this.openSubMenuID = arr;
+                        console.log(this_breadcrumb)
                         this.activeNav = childNodes;
                         if(openNode.attr("title")){
                             this.collapsedMenuTitle = openNode.attr("title");

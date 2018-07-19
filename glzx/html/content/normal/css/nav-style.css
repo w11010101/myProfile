@@ -24,6 +24,10 @@ html{
     color:#fff;
     transition: all .4s;
 }
+.navMenu .ivu-menu.collapsed-menu .ivu-menu-opened{
+    background: #fff;
+    color:#000;
+}
 .ivu-layout-sider-children > .ivu-menu{
     margin-top: 10px;
 }
@@ -116,4 +120,12 @@ html{
 /*第四层*/
 .navMenu .ivu-menu >.ivu-menu-submenu>.ivu-menu>.ivu-menu-submenu>.ivu-menu>.ivu-menu-submenu>.ivu-menu{
     background: #1b6183;
+}
+#navApp.collapse-in {
+    width: 60px;
+    transition-delay: .1s;
+}
+.collapse-in + #right-container {
+    transition-delay: .1s;
+    width: calc(100vw - 60px);
 }

@@ -12,6 +12,7 @@ require.config({
         'domready':'./domready/domReady',
         'jquery.bootstrap-duallistbox':'./bootstrap-duallistbox/jquery.bootstrap-duallistbox',
         'bootstrap-file':'./bootstrap/js/bootstrap-filestyle',
+        'clipboard':'./clipboard/clipboard.min'
         // 'domready':'https://cdn.bootcss.com/require-domReady/2.0.1/domReady'
         // my js
         'breadcrumb':'../normal/js/getBreadcrumb.min',
@@ -40,3 +41,20 @@ require.config({
         }
     }
 })
+
+require(['jquery','vue','bootstrap','v-nav'],
+    function($,Vue,bootstrap,nav){
+   
+    // 实例 获取面包屑组件 breadcrumb
+    // 可以通过option进行面包屑配置；支持2个参数，
+    var option = {
+        // nodesName:"nodes",   // 默认子节点的集合为nodes
+        paramName:'href'   // 默认根据id属性来查找
+    }
+
+    var newNav = nav(function(event){
+        console.log(event);
+    });
+    console.log(newNav);
+ 
+});

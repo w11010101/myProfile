@@ -30,6 +30,14 @@ body .side-nav.collapsed > li.navigation .sidebar-toggle [class*="icon-"] {margi
 background:url(../images/ico-arr-down-black.png) no-repeat 15px center;
 font-weight:normal;}
 
+
+
+/*7.12想让左菜单字小点*/
+.side-nav > li > a.sidebar-toggle{font-size:14px;}
+.side-nav > li > a.sidebar-toggle > i.icon-service{margin-right:10px;margin-top:8px;}
+.navbar .navbar-nav > li > a{line-height:45px;}
+.side-nav > li.navigation > .dropdown-menu{padding-bottom:2px;}
+
 /*个性化*/
 .table.table-canci > tbody > tr > td,
 .table.table-canci > tbody > tr > th {
@@ -266,3 +274,10 @@ overflow:hidden;
 .form-zhekou .radio-inline{margin-bottom:30px;}
 .form-zhekou .radio-inline input[type=number].form-control{float:none;display:inline-block;}
 .form-zhekou .radio-inline label{clear:both;float:none;margin-bottom:15px;clear:both;}
+
+
+ul,li {list-style:none;margin:0;padding:0;}
+
+ .form-horizontal .form-group li label input,  .form-horizontal .form-group li label span {float:left;}
+ .form-horizontal .form-group li li label {float:left;}
+ .form-horizontal .form-group li {margin-left:30px;}

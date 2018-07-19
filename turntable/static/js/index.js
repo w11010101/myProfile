@@ -10,7 +10,8 @@ require('jqueryplugin/awardRotate.js');
 // import 'jqueryplugin/awardRotate.js'
 // import 'jqueryplugin/jquery-mousewheel.js';
 
-;
+import data from '../../src/components/data.xml';
+console.log(data)
 
 $(function() {
     var rotateTimeOut = function() {

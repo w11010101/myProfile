@@ -6,12 +6,17 @@
 	<title>index2</title>
 	<link rel="stylesheet" type="text/css" href="../static/js/plugin/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../static/css/demo.css">
-	<link rel="stylesheet" type="text/css" href="../static/js/plugin/jquery/jquery.datetimepicker.min.css">
 </head>
+<style type="text/css" media="screen">
+	[v-cloak]{
+		display: none;
+	}
+</style>
 <body>
 	<!-- vue -->
-	<div id="app">
+	<div id="app" v-cloak>
 		<h1>{{text}}</h1>
+		<p>{{msg}}</p>
 		<button type="button" @click=alertFn>index2.js</button>	
 
 	</div>
@@ -31,7 +36,12 @@
 	</form>
 </body>
 <script type="text/javascript" src="../static/js/plugin/jquery/jquery.min.js"></script>
-<!-- <script type="text/javascript" src="../static/js/plugin/jquery/jquery.datetimepicker.full.min.js"></script> -->
+
 <script type="text/javascript" src="../static/js/plugin/vue/vue.js"></script>
-<script type="text/javascript" src="../build/app2.js"></script>
+<script type="text/javascript" src="../build/index2.bundle.js"></script>
+<script type="text/javascript" src="../static/js/myPlugin/middle.js"></script>
+<script type="text/javascript">
+
+	// console.log(middle("A",'B'))
+</script>
 </html>

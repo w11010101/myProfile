@@ -1,5 +1,5 @@
-define(["jquery.datetimepicker",'vue','jquery.bootstrap-duallistbox','domready','bootstrap-file'],
-    function(_date,Vue,duallistbox,domready,filestyle){
+define(["jquery.datetimepicker",'vue','jquery.bootstrap-duallistbox','domready','bootstrap-file','token'],
+    function(_date,Vue,duallistbox,domready,filestyle,token){
     return function (){
         window.app = new Vue({
             el:'#app',
@@ -22,11 +22,10 @@ define(["jquery.datetimepicker",'vue','jquery.bootstrap-duallistbox','domready',
             },
             mounted:function(){
                 $('select[name="duallistbox_demo1[]"]').bootstrapDualListbox();
+                
             }
 
         })
-
-
         // 日期
         $.datetimepicker.setLocale('zh');
         $('#startDate').datetimepicker({        

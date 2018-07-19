@@ -132,7 +132,8 @@ Bootstrap Tables
 .table.table-hover > tfoot > tr > td,
 .table.table-hover > tfoot > tr > th {
 	padding:13px 15px;
-	background-color:#FFF7EA;
+	background-color:#fff;
+	border-top:1px solid #ddd;
 }
 /*special*/
 .table-nobordered > thead > tr > th {
@@ -194,24 +195,28 @@ td.numdisapy span a {position:absolute;right:0;top:50%;margin-top:-10px;}
 	overflow:hidden;
 	display:inline-block;
 }
+
 .photo img {
 	width:60px;
 }
 .zoom .photo {
 	width:60px;
 	height:84px;
+	margin:0;display:table-cell;text-align:center;
 	border-radius:4px;
 }
+.zoom .photo a{margin:0;border-radius:4px; display:block; width:100%;}
+.zoom .photo a *{vertical-align:middle;}
 .zoom img {
 	cursor:pointer;
 }
 #pic,.pic {
-	position:absolute;
+	position:fixed;
+	z-index: 999;
 	display:none;
 }
 #pic1,.pic1 {
-	width:200px;
-	height:280px;
+	/*width:200px;*/width:auto;background:#fff;border:1px solid #f0f0f0;
 	border-radius:5px;
 	-webkit-box-shadow:5px 5px 5px 5px hsla(0,0%,5%,1.00);
 	box-shadow:5px 5px 5px 0px hsla(0,0%,5%,0.3);
@@ -330,6 +335,7 @@ select::-ms-expand {
 	margin-left:5px;
 	margin-right:5px;
 }
+	.searcharea .form-inline {margin-left:-16px;margin-right:0;}
 .form-inline .form-date {
 	display:inline-block;
 	width:auto;
@@ -364,7 +370,7 @@ select::-ms-expand {
 	margin:0 3px 15px;
 }
 .form-inline-table .btn:last-child {
-	margin-right:0;
+	margin-right:3px;
 }
 .form-inline-table select.form-control {
 	width:auto;
@@ -373,8 +379,13 @@ select::-ms-expand {
 	line-height:30px;
 }
 .form-inline .form-group {
-	margin-right:26px;
+	margin-left:26px;
 }
+.form-inline-table .form-group .btn{margin-right:0;margin-left:0;}
+.form-inline-table .form-group .btn:last-child{margin-right:3px;}
+.form-inline .input-group{width:210px;margin-top: -15px;}
+.form-inline-table .form-group .btn.btn-default.marginr5{margin-right:15px;}
+.form-inline.form-inline-table.col-md-9.pull-right{width:auto;margin-left:-80px;}
 /*form-inline-alignment对齐式内联表单*/
 .form-inline-alignment .form-group {
 	width:40%;
@@ -1883,3 +1894,33 @@ th.week {
 	text-overflow:ellipsis;
 	width:100%;
 }
+
+
+/*6.21*/
+.lineheight230 dd{margin-bottom:20px;}
+.lineheight230 label{width:100px;}
+hr.dashed{margin:20px 0;border:none;border-bottom:1px dashed #ccc;}
+
+.huodong_view .col-md-8 img{width:100%;}
+
+h5{margin-bottom:20px;}
+.margint20{margin-top:20px;}
+
+table .radio, table .checkbox{margin-top:5px;margin-bottom:0;}
+
+
+/*层级菜单*/
+.dropdown-menu .dropdown-menu{padding:0;}
+.dropdown-menu .dropdown-menu>li>a {
+    display: block;
+    padding: 5px 20px 5px 60px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.8;
+    color: #fff;
+	white-space: nowrap;
+	font-size:12px;
+}
+.dropdown-menu>li>a:hover{color:#fff;background:#00C1DE;}
+
+ul,li {list-style:none;margin:0;padding:0;}

@@ -13,6 +13,11 @@ require.config({
         'domready':'./domready/domReady',
         'jquery.bootstrap-duallistbox':'./bootstrap-duallistbox/jquery.bootstrap-duallistbox',
         'bootstrap-file':'./bootstrap/js/bootstrap-filestyle',
+        'iscroll-zoom':'./photoClip/iscroll-zoom',
+        'hammer':'./photoClip/hammer',
+        'lrz':'./photoClip/lrz.all.bundle',
+        'abc':'../normal/js/abc',
+        'token':'../normal/js/cookieFn',
         // 'domready':'https://cdn.bootcss.com/require-domReady/2.0.1/domReady'
         // my js
         'breadcrumb':'../normal/js/getBreadcrumb.min',
@@ -34,16 +39,21 @@ require.config({
         },
         'jquery.datetimepicker':{
             deps:['css!./jquery.date/jquery.datetimepicker.min','jquery'],
-            // exports:"jquery.datetimepicker"
         },
         'jquery.bootstrap-duallistbox':{
             deps:['jquery','css!./bootstrap-duallistbox/bootstrap-duallistbox']
+        },
+        'abc':{
+            deps:['jquery'],
+            exports:"abcFn"
         }
     }
 });
-require(['jquery','vue','bootstrap','v-nav'],
-    function($,Vue,bootstrap,nav){
-   
+require(['jquery','vue','bootstrap','v-nav','abc'],
+    function($,Vue,bootstrap,nav,abc){
+    
+    // ==============   
+    abc.a1()
     // 实例 获取面包屑组件 breadcrumb
     // 可以通过option进行面包屑配置；支持2个参数，
     var option = {

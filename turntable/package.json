@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --config webpack.config.js"
+    "build": "webpack --config webpack.config.js",
+    "watch": "webpack --watch"
   },
   "keywords": [],
   "author": "wangmaomao",
@@ -12,14 +13,19 @@
   "devDependencies": {
     "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^1.0.0",
+    "csv-loader": "^3.0.2",
     "expose-loader": "^0.7.5",
     "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.2.0",
     "style-loader": "^0.21.0",
     "url-loader": "^1.0.1",
     "webpack": "^4.15.1",
-    "webpack-cli": "^3.0.8"
+    "webpack-cli": "^3.0.8",
+    "xml-loader": "^1.2.1"
   },
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.16.3",
+    "jquery": "^3.3.1"
+  },
   "description": ""
 }

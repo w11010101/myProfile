@@ -1,5 +1,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="UTF-8" />
+<link rel="stylesheet" type="text/css" href="../../content/frame/bootstrap/css/bootstrap.css">
 <!--  -->
 <style type="text/css" media="screen">
 .myTooltip .title {
@@ -35,23 +36,20 @@
             <input id="endDate" class="form-control" type="text" placeholder="选择时间">
         </div>
     </div>
-
     <!--  -->
     <div class="form-group">
         <label class="col-md-3 control-label">上传图片：</label>
-        <div class="col-md-4">            
+        <div class="col-md-4">
             <input id="fileUpload" type="file" class="filestyle" data-icon="false" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg">
             <!--以上 accept="image/gif,image/jpeg,image/jpg,image/png,image/svg"  是表示限制仅上传图片类文件用的，若用别的方法限定此处也可以不加-->
             <div id="image-holder"></div>
         </div>
         <!-- <div class="help-block col-md-reset">请选择1寸照片比例的图片</div> -->
     </div>
-
 </form>
 <div id="div2">
     div2
 </div>
-
 <div id="app" v-cloak>
     <ul class="nav nav-tabs in">
         <li class="active">
@@ -62,17 +60,7 @@
         </li>
     </ul>
     <h1>{{h1}}</h1>
-    <div class="tab-content">
-        <!-- <template v-if="loginType">
-            <label>Username</label>
-            <input placeholder="Enter your username" key="username-input">
-        </template>
-        <template v-else>
-            <label>Email</label>
-            <input placeholder="Enter your email address" key="email-input">
-        </template> -->
-        <!-- <h2>{{h2}}</h2>
-        <button @click.prevent="toggle">toggle btn </button> -->
+    <!-- <div class="tab-content">
         <template>
             <div class="tab-pane fade active in"  v-show="show">
                 <label>Username</label>
@@ -102,11 +90,74 @@
                 <input placeholder="Enter your email address">
             </div>
         </template>
+    </div> -->
+    <!--  -->
+    <div class="bindUse" id='useApp'>
+        账号： <input type="text" name="account" maxlength="12">
+        <br> 
+        密码： <input type="password" name="password" maxlength="20">
+        <button class="submit">提交</button>
     </div>
 </div>
-
+<!--  -->
+<div class="row">
+    <div class="col-md-10">
+        <div id="photoClip">
+            <div class="form-group">
+                <input type="file" class="filestyle" data-icon="false" id="file">
+                <div id="image-holder"></div>
+            </div>
+            <!--  -->
+            <div class="col-md-9">
+                <div class="boxCen">
+                    <div id="clipArea" class="file-clip"></div>
+                    <div id="imgHtml" class="clipEnd"></div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="tool-btns">
+                    <button type="button" class="btn btn-default btn-block" id="clipBtn">裁剪图片</button>
+                    <button type="button" class="btn btn-default btn-block" id="rotaBtn">选转</button>
+                    <button type="button" class="btn btn-default btn-block" id="bigImg">放大</button>
+                    <button type="button" class="btn btn-default btn-block" id="smallImg">缩小</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <script type="text/javascript" async>
-require(['../normal/js/checkbox-line'], function(line) {
+require(['../normal/js/checkbox-line', "./photoClip/jquery.photoClip"], function(line) {
     line();
+    // clip();
+    $("#file").on("click", function() {
+        $(".clipEnd img,.photo-clip-rotateLayer img").attr('src', "");
+        $("#clipArea,.tool-btns").show(0);
+    })
+
+    function clip() {
+        $("#clipArea").photoClip({
+            size: [358, 441],
+            file: "#file",
+            ok: "#clipBtn",
+            view: "#imgcav",
+            rotaBtn: '#rotaBtn',
+            bigBtn: '#bigImg',
+            smallBtn: '#smallImg',
+            outputSize: [358, 441],
+            loadStart: function() {
+                console.log("照片读取中");
+            },
+            loadComplete: function() {
+                console.log("照片读取完成");
+            },
+            clipFinish: function(dataURL) {
+                var img = '<img src="' + dataURL + '">';
+                $("#clipArea,.tool-btns").hide(0);
+                $('#imgHtml').html(img);
+            }
+        });
+    }
+
+
 });
 </script>

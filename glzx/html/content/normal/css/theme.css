@@ -620,9 +620,10 @@ h2 {
 /* 合并 my-theme.css*/
 #right-container{
     width: calc(100vw - 230px);
-    float:right;
+    position: absolute;
+    right: 0;
     padding: 0 45px 0 40px;
-    top:5px;
+    top:50px;
     height:calc(100vh - 50px);
     overflow-x: hidden;
     overflow-y: auto; 
@@ -677,7 +678,7 @@ header ul.dropdown-menu > li a{
     height: 24px;
     margin-top:21px;
     border:0;
-    /*background: url(../../../content/normal/images/refresh.png) no-repeat;*/
+    background: url(../../../content/normal/images/refresh.png) no-repeat;
 }
 .content-h1 .breadcrumb{
     display: inline-block;
@@ -692,9 +693,14 @@ header ul.dropdown-menu > li a{
 .content-h1 .breadcrumb>li+li:before{
     font-family: monospace;
     font-size: 12px;
-    content:"〉";
+    content: "\003E";
+    text-align: center;
     color: #9f9f9f;
-    background:none;
+    background: none;
+    vertical-align: middle;
+    line-height: 12px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 .content-h2{
     height: 30px;
@@ -737,4 +743,52 @@ header ul.dropdown-menu > li a{
 }
 .content-h2 .form-group.form-group-right{
     float: right;
+}
+/**/
+#photoClip .form-group{
+	height: 50px;
+}
+.boxCen {
+	width: 100%;
+	min-height: 441px;
+	height: 500px;
+	text-align: center;
+	position: relative;
+}
+.file-clip,#imgHtml{
+	position: absolute!important;
+	top:0;
+	left:0;
+	width: 100%;
+	height: calc(100%);
+	background: #fff;
+	display: inline-block;
+	vertical-align: bottom;
+	z-index: 2;
+}
+#imgHtml{
+	z-index: 1;
+}
+.file {
+	position: relative;
+	overflow: hidden;
+	vertical-align: middle;
+	margin: 20px 20px 0 0;
+}
+.boxCen .file {
+	vertical-align: bottom;
+}
+.tool-btns{
+	width:100%;
+	display: inline-block;	
+	float:right;
+}
+
+.clipEnd {
+
+}
+.clipEnd img{
+	border: 1px solid #ddd;
+	height: 441px;
+	padding: 5px;
 }

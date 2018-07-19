@@ -1,11 +1,15 @@
-import Vue from 'vue'
-// import $ from "jquery"
+import Vue from 'vue';
+// import $ from "jQuery";
+
 import 'jqueryplugin/jquery.datetimepicker.full.js';
+
+import './plugin/jquery/jquery.datetimepicker.min.css';
 
 var app = new Vue({
     el:"#app",
     data:{
-        text:"this is index2.js ！！"
+        text:"this is index2.js ！！",
+        msg:"测试 webpack --watch，npm run watch !!!!"
     },
     methods:{
         alertFn:function(){
