@@ -282,7 +282,7 @@ var data = [
         level: 0,
         text: 'APP管理',
         id: 4,
-        icon:"cube",
+        icon:" icon-ai-app-set",
         nodes: [
             {
                 level: 1,

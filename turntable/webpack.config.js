@@ -36,13 +36,6 @@ const config = {
     devtool:'inline-source-map',
     externals: {
         jquery: "jQuery",
-        // jquery: "commonjs2 ./jqueryplugin/jquery.min",
-        // jquery: {
-        //     commonjs:'jQuery',
-        //     commonjs2:'jQuery',
-        //     amd:'jQuery',
-        //     root:'_'
-        // },
         vue: "Vue"
     },
     module: {

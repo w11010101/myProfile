@@ -1,11 +1,13 @@
 (function(factory) {
     'use strict';
     if(typeof define === 'function'){
-        define(factory);
+        define(function(){
+            return factory;
+        });
     }else if(typeof exports === 'object'){
         module.exports = factory();
     }else{
-        window.token = factory();
+        window.token = factory;
     }
     
 })(function(option){
@@ -24,12 +26,10 @@
     var wise = cookie.split(';');
     var i = 0;
     while (i < wise.length) {
-        var e = wise[i];
-        if (e.indexOf(_default.key) >= 0) {
-            console.log("you", e.replace(_default.key+'=', ''));
-            var token = JSON.parse(e.replace(_default.key+'=', ''));
-            console.log('token = ', token);
-            return token.token;
+        var val = wise[i].replace(/\s*/g,'');
+        if (val.indexOf(_default.key) == 0) {
+            var token = val.replace(_default.key+'=', '');
+            return token;
         }
         i++;
         if (i == wise.length) {
@@ -41,4 +41,4 @@
             }, 3000);
         }
     }
-})
+});

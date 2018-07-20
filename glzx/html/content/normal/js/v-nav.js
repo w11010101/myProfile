@@ -18,7 +18,7 @@ define(['jquery','vue','breadcrumb','iview'],function($,Vue,breadcrumb,iview){
             template:`<submenu :name="data.href || data.id" v-if="data.nodes && data.nodes.length" :title='data.text' >
                         <template slot="title" >
                             <icon :type="data.icon" v-if="data.icon"></icon>
-                            <span>{{data.text}}</span>
+                            <span>{{data.text}}&#xe90d;</span>
                         </template>
                         <menu-item v-for="item in data.nodes" 
                             :key="item.id"  
