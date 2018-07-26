@@ -9,7 +9,7 @@
  * @param  {object} undefined   undefined
  * @return {object}           
  */
-;(function (factory) {
+;(function (root,factory) {
     if ( typeof define === 'function' && define.amd ) {
         // AMD. Register as an anonymous module.
         define(['jquery'], factory);
@@ -21,7 +21,7 @@
         // Browser globals
         factory(jQuery);
     }
-}(function($){
+}(this,function($){
     'use strict';
     // 
     function SelectCheckbox(el,option){

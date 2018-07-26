@@ -15,13 +15,13 @@
             nodeArr = [],       // 节点集合
             idsArr = [],        // 节点id集合
             currentNode = '',   // 当前节点
-            currentNodesChilds = '' // 当前节点的子节点集合
+            currentNodesChilds = ''; // 当前节点的子节点集合
         // 默认配置项
         
         var _default = {
            nodesName:"nodes",   // 默认子节点的集合为nodes
            paramName:'id'   // 默认根据id属性来查找
-        }
+        };
         // 修改默认配置项
         if(option){
             for(var item in option){
@@ -30,7 +30,7 @@
                 }
             } 
         }
-        this.abc = 123
+        this.abc = 123;
 
         // run
         this.init = function(arr,selectedID){
@@ -50,8 +50,8 @@
                 idsArr:_get.ids,
                 currentNode:_get.cn,
                 currentNodesChilds:_get.cnc
-            }
-        }
+            };
+        };
 
         // 获取节点父级
         function getNodeParent (arr,selectedID){
@@ -67,7 +67,7 @@
                         breadcrumbs.unshift(arr[i].text);
                         nodeArr.unshift(arr[i]);
                         idsArr.unshift(_parame);
-                        console.log(_parame)
+                        console.log(_parame);
                         currentNode = arr[i];
                         currentNodesChilds = arr[i][_default.nodesName]&&arr[i][_default.nodesName].length?arr[i][_default.nodesName]:'';
                     }
@@ -105,7 +105,7 @@
                 ids:idsArr,
                 cn:currentNode,
                 cnc:currentNodesChilds
-            }
+            };
         }
 
         // 判断是否是父级节点，返回 boolean
@@ -135,12 +135,12 @@
         return {
             init:this.init,
             getName:this.getName
-        }
+        };
     }
 
     getBreadcrumb.prototype.getName = function(name){
-        console.log(name)
-    }
+        console.log(name);
+    };
 
     var breadcrumb = getBreadcrumb;
     if(typeof define === 'function' && define.amd){
@@ -154,5 +154,3 @@
     }
 
 }).call(this || (typeof window !== 'undefined' ? window : global));
-
-

@@ -1,4 +1,4 @@
-(function(factory) {
+(function(root,factory) {
     'use strict';
     if(typeof define === 'function'){
         define(function(){
@@ -7,10 +7,11 @@
     }else if(typeof exports === 'object'){
         module.exports = factory();
     }else{
+        
         window.token = factory;
     }
     
-})(function(option){
+})(this,function(option){
     var _default = {
         key:'wise',
         href:null
