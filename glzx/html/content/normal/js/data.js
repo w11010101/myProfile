@@ -4,6 +4,7 @@ var data = [
         level: 0,
         text: '示例管理',
         id: 1,
+        href:null,
         icon: "gear-a",
         nodes: [
             {
@@ -135,6 +136,7 @@ var data = [
         level: 0,
         text: '运维管理',
         id: 2,
+        href:null,
         icon: "gear-b",
         nodes: [
             {
@@ -243,6 +245,7 @@ var data = [
         level: 0,
         text: '智慧食堂',
         id: 3,
+        href:null,
         icon: "star",
         nodes: [
             {
@@ -282,6 +285,7 @@ var data = [
         level: 0,
         text: 'APP管理',
         id: 4,
+        href:null,
         icon:"gear-a",
         nodes: [
             {

@@ -1,4 +1,14 @@
-;(function(){
+(function(root,factory){
+    if(typeof define === 'function'){
+        define(function(){
+            return factory;
+        });
+    }else if(typeof exports === 'object'){
+        module.exports = factory;
+    }else{
+        root.breadcrumb = factory;
+    }
+})(this,function(option){
     /**
      * 根据树形结构，来获取子节点的面包屑路径
      * @param  {tree Array} arr     原始树形结构的arr数据
@@ -30,7 +40,7 @@
                 }
             } 
         }
-        this.abc = 123;
+        this.author = '大馒头小咸菜';
 
         // run
         this.init = function(arr,selectedID){
@@ -67,7 +77,6 @@
                         breadcrumbs.unshift(arr[i].text);
                         nodeArr.unshift(arr[i]);
                         idsArr.unshift(_parame);
-                        console.log(_parame);
                         currentNode = arr[i];
                         currentNodesChilds = arr[i][_default.nodesName]&&arr[i][_default.nodesName].length?arr[i][_default.nodesName]:'';
                     }
@@ -134,23 +143,10 @@
         // 公有方法
         return {
             init:this.init,
-            getName:this.getName
+            author:this.author,
         };
     }
+    var breadcrumb = new getBreadcrumb(option);
+    return breadcrumb;
 
-    getBreadcrumb.prototype.getName = function(name){
-        console.log(name);
-    };
-
-    var breadcrumb = getBreadcrumb;
-    if(typeof define === 'function' && define.amd){
-        define(function(){
-            return breadcrumb;
-        });
-    }else if(typeof exports === 'object' && typeof module !== 'undefined'){
-        module.exports = breadcrumb;
-    }else{
-        this.breadcrumb = breadcrumb;
-    }
-
-}).call(this || (typeof window !== 'undefined' ? window : global));
+})

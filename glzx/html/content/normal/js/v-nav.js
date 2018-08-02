@@ -1,13 +1,16 @@
 
 define(['jquery','vue','breadcrumb','iview'],function($,Vue,breadcrumb,iview){
     // 封装之前写好的的iview的nav导航
+    
     function runNavVm(callback){
         var b = new breadcrumb({
             paramName:"href"
         });
+
         var menuBreadcrumb = new breadcrumb({
             paramName:"id"
         });
+        
         Vue.use(iview);
         breadcrumb = b;
         //This function is called once the DOM is ready,
@@ -22,7 +25,7 @@ define(['jquery','vue','breadcrumb','iview'],function($,Vue,breadcrumb,iview){
                         </template>
                         <menu-item v-for="item in data.nodes" 
                             :key="item.id"  
-                            :name="item.href||item.id"
+                            :name="item.href || item.id"
                             v-if="!item.nodes || !item.nodes.length" >
                             <span>{{item.text}}</span>
                         </menu-item>
