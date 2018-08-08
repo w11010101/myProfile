@@ -1,0 +1,112 @@
+.content-label{
+    background: #fff;
+    padding: 20px 25px;
+    font-size: 18px;
+    color:#333;
+    line-height: 20px;
+}
+.content-label a{
+    color:#31affd;
+    float:right;
+    font-size:16px;
+    padding-right:25px;
+    background:url(../../images/blue-arrow-right.png) no-repeat right;
+    background-size: 21px;
+    margin-right: -10px
+}
+.punch .smart-list,
+.punch-history .smart-list{
+    background:#fff;
+}
+.punch .smart-list .smart-list-item,
+.punch-history .smart-list .smart-list-item{
+    height: 110px;
+    padding: 21px 35px 21px 80px;
+    line-height: normal;
+    background: url(../../images/arrow-right.png) no-repeat center right 18px;
+    background-size: 16px;
+}
+.punch-history .smart-list .smart-list-item{
+    padding:20px 25px;
+}
+.punch .smart-list .smart-list-item a{
+    display: block;
+}
+.punch .smart-list .smart-list-item h2,
+.punch-history .smart-list .smart-list-item h2{
+    margin:0;
+    line-height: 18px;
+    font-size: 18px;
+    color:#333;
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+.punch .smart-list .smart-list-item h2 ~ span,
+.punch-history .smart-list .smart-list-item h2 ~ span{
+    display: block;
+    font-size: 14px;
+    color:#9b9b9b;
+    line-height: 18px;
+    margin-bottom: 2px;
+}
+.punch .smart-list.smart-list-space .smart-list-item:first-child:before{
+    content: " ";
+    height: 1px;
+    position: absolute;
+    top:0;
+    left: 55px;
+    width: 100%;
+    background: #e0e0e0;
+    transform: rotateX(60deg);
+    -webkit-transform: rotateX(60deg);
+}
+.punch .smart-list.smart-list-space .smart-list-item:after{
+    left:55px;
+}
+.punch-history .smart-list.smart-list-space .smart-list-item:after{
+    left:20px;
+}
+.timeaxis{
+    position: absolute;
+    width: 64px;
+    top:0;
+    left:0;
+    bottom: 0;
+    overflow: hidden;
+}
+.timeaxis label{
+    position: absolute;
+    z-index: 1;
+    top:18px;
+    width: 64px;
+    height: 23px;
+    color:#fff;
+    font-size: 12px;
+    text-align: center;
+    line-height: 23px;
+}
+.timeaxis.active label{
+    background: #ffa700;
+}
+.timeaxis.soon label{
+    background: #ffaeb5;
+}
+.timeaxis:before{
+    position: absolute;
+    left:50%;
+    content:" ";
+    width: 1px; 
+    top:0;
+    bottom:0;
+    background:#afe0ff;
+}
+.timeaxis label img{
+    width: 24px;
+    height: 24px;
+}
+.timeaxis.active:before{
+    top:18px;
+}
+.punch .smart-list.smart-list-space .smart-list-item:last-child .timeaxis:before{
+    bottom:68px;
+}
