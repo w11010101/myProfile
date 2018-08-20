@@ -62,7 +62,8 @@
                 currentNodesChilds:_get.cnc
             };
         };
-
+        // walk on water
+        // the call of the mountains
         // 获取节点父级
         function getNodeParent (arr,selectedID){
             var i = 0;

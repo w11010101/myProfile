@@ -18,7 +18,7 @@
 .punch-history .smart-list{
     background:#fff;
 }
-.punch .smart-list .smart-list-item,
+.punch-card .smart-list .smart-list-item,
 .punch-history .smart-list .smart-list-item{
     height: 110px;
     padding: 21px 35px 21px 80px;
@@ -49,7 +49,7 @@
     line-height: 18px;
     margin-bottom: 2px;
 }
-.punch .smart-list.smart-list-space .smart-list-item:first-child:before{
+.punch-card .smart-list.smart-list-space .smart-list-item:first-child:before{
     content: " ";
     height: 1px;
     position: absolute;
@@ -85,7 +85,7 @@
     text-align: center;
     line-height: 23px;
 }
-.timeaxis.active label{
+.timeaxis.beginning label{
     background: #ffa700;
 }
 .timeaxis.soon label{
@@ -104,9 +104,228 @@
     width: 24px;
     height: 24px;
 }
-.timeaxis.active:before{
+.timeaxis.beginning:before{
     top:18px;
 }
-.punch .smart-list.smart-list-space .smart-list-item:last-child .timeaxis:before{
+.punch-card .smart-list.smart-list-space .smart-list-item:last-child .timeaxis:before{
     bottom:68px;
+}
+/* punch-info */
+.punch-info{
+    height: 100vh;
+}
+.punch-info{
+    background: url(../../images/backgrounds/punch-bg.png) no-repeat;
+    background-size: contain;
+}
+.punch .navbar{
+    z-index: 99999;
+}
+.punch .smart-content{
+    overflow:hidden;
+}
+.punch-info .smart-content header{
+    text-align: center;
+    color:#fff;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.punch-info .smart-content header h1{
+    margin: 0px auto 35px;
+    font-size:24px;
+}
+.punch-info .smart-content header h1 +p{
+    position: relative;
+    display: inline-block;
+    padding: 0 25px;
+}
+.punch-info .smart-content header h1 +p:before,
+.punch-info .smart-content header h1 +p:after{
+    position: absolute;
+    content:"—";
+    top:0px;
+}
+.punch-info .smart-content header h1 +p:before{
+    left:0;
+}
+.punch-info .smart-content header h1 +p:after{
+    right:0;
+}
+.punch-info .smart-content header p{
+    font-size:14px;
+}
+.punch-info .smart-content nav{
+    width: 95%;
+    height: 86px;
+    background: #fff;
+    margin:0 auto;
+    border-radius:13px;
+    box-shadow:0px 3px 10px rgba(0,0,0,0.1);
+}
+.punch-info .smart-content nav ul{
+    height: 86px;
+    font-size: 0;
+    text-align: center;
+    padding: 15px 5px;
+}
+.punch-info .smart-content nav ul li{
+    font-size: 14px;
+    height: 56px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.punch-info .smart-content nav ul li:not(:last-child){
+    width: 26%;
+}
+.punch-info .smart-content nav ul li:last-child{
+    width: 22%;
+}
+.punch-info .smart-content nav ul li a{
+    display: block;
+    line-height: 28px;
+    color:#bebebe;
+    position: relative;
+}
+.punch-info .smart-content nav ul li a span{
+    display: block;
+    font-size: 16px;
+    color:#4a4a4a;
+}
+.punch-info .smart-content nav ul li a.active{
+    color:#8b8b8b;
+}
+.punch-info .smart-content nav ul li a.active span{
+    color:#333;
+}
+.punch-info .smart-content nav ul li a:before{
+    position: absolute;
+    top:50%;
+    margin-top:-15px;
+    right: 0;
+    content:"";
+    width: 1px;
+    height: 30px;
+    background: #d8d8d8;
+}
+.punch-info .smart-content nav ul li:nth-child(3) a:before{
+    display: none;
+}
+.punch-info .smart-content nav ul li button{
+    width: 58px;
+    height:30px;
+    margin-top:15px;
+    border:none;
+    border-radius:5rem;
+    transition:all .1s ease;
+    -webkit-transition:all .1s ease;;
+    -moz-transition:all .1s ease;
+}
+/* 开始 */
+.punch-info.punch-started nav ul li button{
+    background: none;
+    color:#4a90e2;
+    border:1px solid #4a90e2;
+}
+.punch-info .punch-state{
+    color:#fff;
+    background: #fea500;
+    width: 64px;
+    height: 23px;
+    position: absolute;
+    top:55px;
+    right: 0;
+    text-align: center;
+    line-height: 23px;
+}
+/* 未开始 */
+.punch-info.punch-notBegin nav ul li button[disabled],
+.punch-info.punch-soon nav ul li button[disabled]{
+    background: #ddd;
+    color:#fff;
+}
+.punch-info.punch-notBegin .punch-state{
+    color:#fff;
+    background: #ddd;
+}
+.punch-info.punch-soon .punch-state{
+    color:#fff;
+    background: #ffaeb5;
+}
+.punch-info .smart-content nav ul li button:active{
+    color:#fff;
+    background: #4a90e2;
+}
+.punch-info .smart-content {
+    position: absolute;
+    width: 100%;;
+    top:0;
+    bottom: 0;
+}
+.punch-info .content-list{
+   height: calc(100% - 110px - 86px - 20px - 25px);
+    margin-top: 10px;
+    overflow-x: hidden;
+    overflow-y: scroll; 
+}
+.punch-info .smart-list{
+    height: 100%;
+    /*-webkit-overflow-scrolling:touch;*/
+}
+.punch-info .content-list .nothing{
+    height: 100%;
+    text-align: center;
+    font-size:14px;
+    color:#4a4a4a;
+}
+.punch-info .content-list .nothing img{
+    margin-bottom: 20px;
+}
+.punch-info .smart-list:after{
+    display: none
+}
+.punch-info .smart-list .user-header{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius:50%;
+    overflow:hidden;
+    vertical-align: middle;
+    margin-right: 16px;
+    margin-left:16px;
+}
+.punch-info .smart-list.smart-list-space .smart-list-item:after{
+    left: 20px;
+}
+.punch-info .smart-list .user-header img{
+    max-width: 100%;
+    /*max-height: 100%;*/
+    vertical-align:top;
+}
+.punch-info .smart-list button{
+    width: 55px;
+    height: 30px;
+    border:1px solid #31affd;
+    color:#31affd;
+    border-radius:4px;
+    background: none;
+    line-height: 28px;
+    padding: 0;
+    float:right;
+    margin-top:15px; 
+    transition:all .1s ease;
+    -webkit-transition:all .1s ease;;
+    -moz-transition:all .1s ease;
+
+}
+.punch-info .smart-list button.onpunch{
+    background: #31affd;
+    color:#fff;
+    
+}
+
+.punch-info .smart-list button.punchdis{
+    background: none;
+    border-color:#fff;
+    color:#b4b4b4;
+
 }

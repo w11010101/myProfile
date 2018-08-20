@@ -8,10 +8,13 @@ var app = express();
 
 console.log(__dirname)
 app.use(express.static(__dirname));
-// app.use(express.static("content"));
+app.use(express.static(__dirname+"/views/punch"));
 app.use(express.static("js"));
 app.use(express.static("css"));
-
+app.use(express.static("recharge/"));
+app.get("/punch",function(request,response){
+    response.sendFile(__dirname+"/views/punch/punch-card.html");
+});
 app.get("/index",function(request,response){
     response.sendFile(__dirname+"/views/test.html");
 });
@@ -20,6 +23,12 @@ app.get("/",function(request,response){
 });
 app.get("/data",function(request,response){
     response.sendFile(__dirname+"/views/local-index.html");
+});
+app.get("/app",function(request,response){
+    response.sendFile(__dirname+"/recharge/recharge.html");
+});
+app.get("/router",function(request,response){
+    response.sendFile(__dirname+"/views/test-router.html");
 });
 var server = app.listen("8082",function(){
     var host = server.address().address;

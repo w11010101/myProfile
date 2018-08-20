@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>在线充值</title>
+    <link rel="stylesheet" type="text/css" href="./recharge.css">
+</head>
+<body>
+    <div class='recharge-content'>
+        <h1>校园卡充值</h1>
+        <div class='recharge-account'>
+            <div class="line">
+                <button class="active" account-type="1">卡号</button>
+                <button account-type="0">学号</button>
+                <input type="number" class="account" onkeypress='return (/[\d|.]/.test(String.fromCharCode(event.keyCode)))' value="" tipeName="卡号、学号">
+            </div>
+            <div class="line account-name">
+                <label>学生姓名</label>
+                <input type="text" value="" tipeName="姓名" readonly="readonly">
+            </div>
+        </div>
+        <div class='recharge-money'>
+            <label>请输入金额</label>
+            <ul class="money-list">
+                <li><button>10元</button></li>
+                <li><button>20元</button></li>
+                <li><button>30元</button></li>
+                <li><button>50元</button></li>
+                <li><button>100元</button></li>
+                <li><button>200元</button></li>
+            </ul>
+            <div class="user-defined-money">
+                自定义金额<input type="number" onkeypress='return (/[\d|.]/.test(String.fromCharCode(event.keyCode)))' value="" tipeName="金额">元
+            </div>
+        </div>
+        <footer>
+            <button class="submit-btn" onclick="submitFn">立即充值</button>
+        </footer>   
+        
+    </div>
+</body>
+<script type="text/javascript" src="ajax.js"></script>
+<script type="text/javascript" src="recharge.js"></script>
+</html>

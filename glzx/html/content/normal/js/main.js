@@ -56,9 +56,7 @@ require.config({
 });
 require(['jquery','vue','bootstrap','v-nav','abc','breadcrumb','pages','extend'],
     function($,Vue,bootstrap,nav,abc,breadcrumb,pages,extend){
-    // console.log(breadcrumb());
-    // console.log(pages.pageComponent);
-    // new extend.component().$mount("#extend");
+    
     window.extendApp = new Vue({
         el:"#extend",
         // components: { 'navigation': pages.pageComponent},
@@ -76,7 +74,8 @@ require(['jquery','vue','bootstrap','v-nav','abc','breadcrumb','pages','extend']
             pagesize: 10,
         },
 
-    })
+    });
+    extendApp.a = '123'
     // ==============   
     // abc.a1()
     // 实例 获取面包屑组件 breadcrumb

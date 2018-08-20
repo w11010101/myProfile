@@ -18,19 +18,115 @@
       <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-
-<body class="punch-info">
-    <nav class="navbar">
-        <div class="smart-header smart-white">
-            <a href="javascript:history.go(-1);" class="smart-back smart-icon-left">
-                <img src="../../content/normal/images/arrow-left.png" alt="" >
-            </a>
-            <h1></h1>
-        </div>
-    </nav>
+<!-- punch-notBegin：未开始 | punch-started：已开始 | punch-soon：即将开始-->
+<body class="punch punch-info punch-started">
     <div class="smart-content" id="smart-content">
-        
-        
+        <!-- h1 -->
+        <header>
+            <h1>大学英语</h1>
+            <p>西校区第五教学楼302教室</p>
+            <p>2018.11.11 12:12 -- 2018.12.12 12:12</p>
+        </header>
+        <!-- 签到状态 -->
+        <div class="punch-state">
+            正在签到
+        </div>
+        <!-- nav -->
+        <nav>
+            <ul>
+                <li><a title="">应到人数<span>50人</span></a></li>
+                <li><a class="active" title="">已签到<span>30人</span></a></li>
+                <li><a title="">未签到<span>20人</span></a></li>
+                <li><button class="punchCard-btn">刷脸</button></li>
+            </ul>
+        </nav>
+        <!-- 列表 -->
+        <div class='content-list'>
+            <ul class="smart-list smart-list-space">
+                <li class='smart-list-item'>
+                    <div class="user-header"><img src="../../content/normal/images/1cun.jpg" alt=""></div>
+                    <span>帝释天</span>
+                    <button class="onpunch">签到</button>
+                </li>
+                <li class='smart-list-item'>
+                    <div class="user-header"><img src="../../content/normal/images/1cun.jpg" alt=""></div>
+                    <span>赵无极</span>
+                    <button class="punchdis">已签到</button>
+                </li>
+                <li class='smart-list-item'>
+                    <div class="user-header"><img src="../../content/normal/images/1cun.jpg" alt=""></div>
+                    <span>张无忌</span>
+                    <button>签到</button>
+                </li>
+                <li class='smart-list-item'>
+                   <div class="user-header"><img src="../../content/normal/images/1cun.jpg" alt=""></div>
+                    <span>萧十一郎</span>
+                    <button>签到</button>
+                </li>
+                <li class='smart-list-item'>
+                    <div class="user-header"><img src="../../content/normal/images/1cun.jpg" alt=""></div>
+                    <span>韩老魔</span>
+                    <button>签到</button>
+                </li>
+                <li class='smart-list-item'>
+                    <div class="user-header"><img src="../../content/normal/images/1cun.jpg" alt=""></div>
+                    <span>帝释天</span>
+                    <button class="onpunch">签到</button>
+                </li>
+                <li class='smart-list-item'>
+                    <div class="user-header"><img src="../../content/normal/images/1cun.jpg" alt=""></div>
+                    <span>赵无极</span>
+                    <button class="punchdis">已签到</button>
+                </li>
+                <li class='smart-list-item'>
+                    <div class="user-header"><img src="../../content/normal/images/1cun.jpg" alt=""></div>
+                    <span>张无忌</span>
+                    <button>签到</button>
+                </li>
+            </ul>
+            <div class="nothing">
+                <img src="../../content/normal/images/nothing.png" alt="">
+                <p>暂时还没有记录</p>
+            </div>
+        </div>
+       
     </div>
 </body>
+<script type="text/javascript">
+    var punchState = [
+        {
+            className:'punch-notBegin',
+            title:'未开始'
+        },{
+            className:'punch-started',
+            title:'正在签到'
+        },{
+            className:'punch-soon',
+            title:'即将签到'
+        }];
+    var i = 0;
+    var body = document.querySelector('body');
+    var classList = body.classList;
+    var state = document.querySelector('.punch-state');
+    var punchCardBtn = document.querySelector('.punchCard-btn');
+    var nothing = document.querySelector('.nothing');
+    var list = document.querySelector('.smart-list');
+
+    var toggleState = setInterval(function(){
+        if(i == punchState.length) i = 0;
+        classList.remove(classList[classList.length-1]);
+        classList.add(punchState[i].className);
+        state.innerHTML = punchState[i].title;
+        if(punchState[i].className != 'punch-started'){
+            punchCardBtn.setAttribute('disabled',true);
+            list.style.display = "none";
+            nothing.style.display = "block";
+        }else{
+            punchCardBtn.removeAttribute('disabled');
+            list.style.display = "block";
+            nothing.style.display = "none";
+        }
+        i++;
+    },3000);
+</script>
 </html>

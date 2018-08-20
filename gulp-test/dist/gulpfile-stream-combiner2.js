@@ -1,0 +1,1 @@
+var combiner=require("stream-combiner2"),gulp=require("gulp"),uglify=require("gulp-uglify");gulp.task("combiner",function(){var r=combiner.obj([gulp.src("./js/*.js"),uglify(),gulp.dest("./dist")]);return r.error("error",console.error.bind(console)),r});
